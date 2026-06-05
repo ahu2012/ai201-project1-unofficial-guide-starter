@@ -21,12 +21,12 @@ Off-campus dining near Yale's campus. The information is poorly reviewed and dis
 
 | # | Source | Description | URL or location |
 |---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 | Reddit post| High quality restaurants with focus on cocktails| https://www.reddit.com/r/newhaven/comments/1n9mjbn/back_in_new_haven_recommend_me_a_new_high_quality/|
+| 2 | Blog | Best restaurants | https://www.theadventuristmagazine.com/city-guides/northeast/connecticut/new-haven-best-restaurants|
+| 3 | Blog | Best restaurants curated by Yalie| https://admissions.yale.edu/posts/2020-10-20-a-new-haven-eating-guide-certified-by-an-aspiring-foodie|
+| 4 | Newspaper | Top restaurants list| https://www.infonewhaven.com/who-knew-blog/new-haven-restaurants-lead-connecticut-magazines-top-new-restaurants-for-2026-list/|
+| 5 | Reddit post  | Restaurant list | https://www.reddit.com/r/newhaven/comments/1q12va0/ive_compiled_a_list_of_food_places_in_new_haven/|
+| 6 | Reddit post | local restaurants | https://www.reddit.com/r/newhaven/comments/16h68pe/new_haven_locals_where_should_i_eat_tonight/|
 | 7 | | | |
 | 8 | | | |
 | 9 | | | |

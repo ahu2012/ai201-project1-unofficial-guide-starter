@@ -8,6 +8,9 @@ __pycache__/
 .venv/
 venv/
 env/
+uv.lock
+pyproject.toml
+.python-version
 
 # Jupyter
 .ipynb_checkpoints/

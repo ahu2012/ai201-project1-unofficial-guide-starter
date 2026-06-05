@@ -10,6 +10,7 @@
 ## Domain
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
+Off-campus dining near Yale's campus. The information is poorly reviewed and disaggregated. Student's have not traditionally gone there due to higher cost and good on-campus options.
 
 ---
 
@@ -41,10 +42,13 @@
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
 **Chunk size:**
+100 tokens 
 
 **Overlap:**
+10 tokens
 
 **Reasoning:**
+Most of the sources are sound-bite sized pieces/reddit posts that are shorter in length. Keeping a shorter chunk size with small overlap will allow us to maintain the meaning while maintaing simplicity in the chunking mechanism.
 
 ---
 
@@ -57,10 +61,13 @@
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
+all-MiniLM-L6-v2
 
 **Top-k:**
+5
 
 **Production tradeoff reflection:**
+For real users, I would start proto-typing with a cheap model like the one above. As the prototyping concluded, I would probably look at more domain-specific embedders to the culinary scene and allow for multilingual support at the expense of cost.
 
 ---
 
@@ -73,11 +80,11 @@
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | Where should I get Indian food for an authentic experience? | Try "Start of India on the Post Road" |
+| 2 | What's a restaurant offering a stellar cocktail menu ?| 116 focuse on cocktails |
+| 3 | What are some options for casual spots that are newly opened? | Tacos Los Gordos, Munchies, Atticus Market |
+| 4 | Where is the best pizza in New Haven? | Opinions differ but Modern, Pepe's, Sally's, Bar are all great pizza spots. |
+| 5 | What kind of seafood is New Haven known for? | Clam and oysters and especially lobster rolls. |
 
 ---
 
@@ -87,9 +94,9 @@
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1. Chunks can definitely split key information across boundaries.
 
-2.
+2. The sources are inconsistent in their suggestions and may introduce stochasticity into the answers.
 
 ---
 
@@ -100,6 +107,10 @@
      Label each stage with the tool or library you're using.
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
+
+Document Ingestion (website scraping/manual copying) → Chunking (Fixed size chunking) → Embedding (all-MiniLM-L6-v2) 
+
++ Vector Store (ChromaDB) → Retrieval (ChromaDB, topK) → Generation (Groq)
 
 ---
 

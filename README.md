@@ -194,7 +194,7 @@ Three options, roughly in order of effort: (1) raise top-k or add a fetch-then-r
 Writing the Chunking Strategy and Retrieval Approach sections first meant every implementation step had concrete numbers to hit — 100-token chunks, 10-token overlap, all-MiniLM-L6-v2, top-k 5, ChromaDB, Groq. When I prompted the AI to generate each stage, I could point it directly at those values instead of negotiating defaults, and the architecture diagram made the boundaries between stages obvious: ingestion writes `chunks.json`, embedding reads it and writes to ChromaDB, generation reads from retrieval. That clean hand-off kept each script independent and easy to test on its own.
 
 **One way your implementation diverged from the spec, and why:**
-The spec described chunk size "in tokens" without specifying *which* tokenizer. During implementation I decided to measure tokens with the all-MiniLM-L6-v2 tokenizer itself rather than a generic word/whitespace count, so that "100 tokens" matches exactly what the embedding model ingests. A side effect I didn't anticipate in the spec: that tokenizer is WordPiece, so it lowercases text and occasionally splits a word across a chunk boundary (e.g. `apizza` → `ap` / `##izza`), which shows up in retrieved context. It doesn't hurt retrieval, but it's a divergence from the "clean prose chunks" I imagined when writing the plan.
+The spec described chunk size "in tokens" without specifying what tokenizer to use. During implementation I decided to measure tokens with the all-MiniLM-L6-v2 tokenizer itself rather than a generic word/whitespace count, so that "100 tokens" matches exactly what the embedding model ingests. A side effect I didn't anticipate in the spec: that tokenizer is WordPiece, so it lowercases text and occasionally splits a word across a chunk boundary (e.g. `apizza` → `ap` / `##izza`), which shows up in retrieved context. It doesn't hurt retrieval, but it's a divergence from the "clean prose chunks" I imagined when writing the plan.
 
 ---
 
@@ -213,7 +213,7 @@ The spec described chunk size "in tokens" without specifying *which* tokenizer. 
 
 - *What I gave the AI:* My Documents section (the table of 10 source URLs) and asked it to write a scraper that saves each source into `documents/`.
 - *What it produced:* `scrape_documents.py`, which uses Reddit's `.json` endpoint for Reddit threads and a standard-library HTML parser (no BeautifulSoup) for blogs. When several sources turned out to be bot-protected (Reddit 403s, a Sucuri WAF JS challenge on infonewhaven), it added an Internet Archive (Wayback) fallback that transparently recovers a snapshot when the live site blocks the request.
-- *What I changed or overrode:* I decided **not** to add a Reddit OAuth path or a WAF-challenge solver for the 3 sources that stayed blocked. Instead I manually copied those (plus a few extra) into `documents/` as plain text — which is why sources 7–10 are marked "manual." I also had to fix that the manual files were saved without a `.txt` extension, so the chunker was updated to accept extensionless text files.
+- *What I changed or overrode:* I decided not to add a Reddit OAuth path or a WAF-challenge solver for the 3 sources that stayed blocked. Instead I manually copied those (plus a few extra) into `documents/` as plain text — which is why sources 7–10 are marked "manual." I also had to fix that the manual files were saved without a `.txt` extension, so the chunker was updated to accept extensionless text files.
 
 **Instance 2**
 

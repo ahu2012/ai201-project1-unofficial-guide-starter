@@ -127,7 +127,13 @@ Document Ingestion (website scraping/manual copying) → Chunking (Fixed size ch
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
+Claude - the entire planning.md and code. I'll verify the output using examples and samples.
+
 
 **Milestone 4 — Embedding and retrieval:**
+Claude - the entire planning.md and code. I'll verify the output using examples and samples.
 
 **Milestone 5 — Generation and interface:**
+Claude - the entire planning.md and code. I'll verify the output using examples and samples.
+
+I anticipate challenges with prompt engineering and mix of access to URLs.

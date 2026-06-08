@@ -27,10 +27,10 @@ Off-campus dining near Yale's campus. The information is poorly reviewed and dis
 | 4 | Newspaper | Top restaurants list| https://www.infonewhaven.com/who-knew-blog/new-haven-restaurants-lead-connecticut-magazines-top-new-restaurants-for-2026-list/|
 | 5 | Reddit post  | Restaurant list | https://www.reddit.com/r/newhaven/comments/1q12va0/ive_compiled_a_list_of_food_places_in_new_haven/|
 | 6 | Reddit post | local restaurants | https://www.reddit.com/r/newhaven/comments/16h68pe/new_haven_locals_where_should_i_eat_tonight/|
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 7 | Blog | hungry onion restaurants | manual |
+| 8 | BLog | forno bravo | manual |
+| 9 | Blog | alumni | manual |
+| 10 | School site | yale school site | manual |
 
 ---
 

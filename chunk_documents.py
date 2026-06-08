@@ -56,6 +56,15 @@ def read_file(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def is_supported(path: Path) -> bool:
+    """A file we should ingest: a known text/PDF suffix, or an extensionless
+    text file (e.g. manually pasted sources). Dotfiles like .gitkeep are skipped."""
+    if not path.is_file() or path.name.startswith("."):
+        return False
+    suffix = path.suffix.lower()
+    return suffix in SUPPORTED_SUFFIXES or suffix == ""
+
+
 def load_documents(input_dir: Path) -> list[tuple[str, str]]:
     """Return [(source_name, raw_text), ...] for every supported file in input_dir."""
     if not input_dir.is_dir():
@@ -63,7 +72,7 @@ def load_documents(input_dir: Path) -> list[tuple[str, str]]:
 
     docs: list[tuple[str, str]] = []
     for path in sorted(input_dir.rglob("*")):
-        if not path.is_file() or path.suffix.lower() not in SUPPORTED_SUFFIXES:
+        if not is_supported(path):
             continue
         raw = read_file(path)
         if raw.strip():
